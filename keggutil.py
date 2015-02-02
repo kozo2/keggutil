@@ -26,3 +26,8 @@ def search_pathway_object(cpd_ids):
                 all_found_ids = all_found_ids | found_ids
     found_in["notFound"] = set(cpd_ids) - all_found_ids
     return found_in
+
+def get_brite():
+    brite = requests.get('http://rest.kegg.jp/list/brite')
+    brite_tbl = pd.read_table(brite.content.strip(), header=None)
+    return brite_tbl
