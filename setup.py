@@ -7,13 +7,14 @@ setup(
     author='Kozo Nishida',
     author_email='knishida@riken.jp',
     url='http://github.com/kozo2/keggutil',
-    keywords=['bioinformatics'],
+    keywords=['KEGG', 'bioinformatics'],
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
     ],
-    packages=['keggutil'],
-    install_requires=[
+    py_modules=['keggutil'],
+    extras_requires=[
         'requests',
+        'pandas',
     ],
 )
