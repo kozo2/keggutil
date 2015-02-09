@@ -16,5 +16,6 @@ setup(
     extras_requires=[
         'requests',
         'pandas',
+        'progressbar',
     ],
 )
