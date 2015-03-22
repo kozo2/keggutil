@@ -8,7 +8,7 @@ API_BASE = "http://rest.kegg.jp/"
 import requests
 import pandas as pd
 from StringIO import StringIO
-from progressbar import ProgressBar
+#from progressbar import ProgressBar
 
 def search_pathway_object(cpd_ids):
     map_list = requests.get('http://rest.kegg.jp/list/pathway/map')
@@ -36,13 +36,13 @@ def get_brite():
 def save_cpd_entries():
     cpds = requests.get('http://rest.kegg.jp/list/compound')
     lines = cpds.content.strip().split('\n')
-    pbar = ProgressBar(maxval=len(lines))
+#    pbar = ProgressBar(maxval=len(lines))
     for i in range(len(lines)):
         cpdid = lines[i].split('\t')[0]
         res = requests.get('http://rest.kegg.jp/get/' + cpdid)
         f = open(cpdid[4:], 'w')
         f.write(res.content)
         f.close()
-        pbar.update(i)
-    pbar.finish()
+#        pbar.update(i)
+#    pbar.finish()
     print "all KEGG COMPOUND entries are saved"
